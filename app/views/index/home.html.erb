@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= root_path %>">Home</a> 
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= team_path %>">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= contact_path %>">Contact</a>
+      </li>
+     
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid text-center" >
+  <div class="box mx-auto">
+    <h1 class="title"><b>THE GOSSIP PROJECT</b></h1>
+    <p class="lead"><b>This Gossip Project allows users to post, comment and like gossips...</b></p>
+  </div>
+</div>
+<div class="container text-center">
+  <div class="page">
+    <h4><u>Freshest fresh fresher Gossips available :</u></h4>
+  </div>
+  <br>  
+
+  <div class="row col">
+    <% @gossips.each_with_index do |gossip, i| %>
+      <div class="card" style="width:18rem;">
+        <h5>
+          <b>Title:</b> <%=gossip.title%>
+        </h5>
+        <p><b>
+          Author:</b> <%=gossip.user.first_name%><br>
+        </p>
+ <%= link_to "clique ici", gossips_path(gossip.id) %>
+        
+      </div>
+    <%end%>
+  </div>
+</div>
